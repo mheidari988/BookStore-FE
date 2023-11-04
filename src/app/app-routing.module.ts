@@ -7,6 +7,7 @@ const routes: Routes = [
     pathMatch: 'full',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
+  { path: 'books', loadChildren: () => import('./book/book.module').then(m => m.BookModule) },
   {
     path: 'account',
     loadChildren: () => import('@abp/ng.account').then(m => m.AccountModule.forLazy()),
