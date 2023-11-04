@@ -1,7 +1,7 @@
 import { ListService, PagedResultDto } from '@abp/ng.core';
 import { Component, OnInit } from '@angular/core';
-import { BookService, BookDto, bookTypeOptions } from '@proxy/books'; // add bookTypeOptions
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'; // add this
+import { BookService, BookDto, bookTypeOptions } from '@proxy/books';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -13,7 +13,7 @@ import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap
 export class BookComponent implements OnInit {
   book = { items: [], totalCount: 0 } as PagedResultDto<BookDto>;
 
-  form: FormGroup; // add this line
+  form: FormGroup;
 
   // add bookTypes as a list of BookType enum members
   bookTypes = bookTypeOptions;
@@ -23,7 +23,7 @@ export class BookComponent implements OnInit {
   constructor(
     public readonly list: ListService,
     private bookService: BookService,
-    private fb: FormBuilder // inject FormBuilder
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -35,11 +35,10 @@ export class BookComponent implements OnInit {
   }
 
   createBook() {
-    this.buildForm(); // add this line
+    this.buildForm();
     this.isModalOpen = true;
   }
 
-  // add buildForm method
   buildForm() {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -49,7 +48,6 @@ export class BookComponent implements OnInit {
     });
   }
 
-  // add save method
   save() {
     if (this.form.invalid) {
       return;
