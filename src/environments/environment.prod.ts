@@ -1,6 +1,6 @@
 import { Environment } from '@abp/ng.core';
 
-const baseUrl = 'http://localhost:4200';
+const baseUrl = 'https://tire-management-backend.azurewebsites.net/';
 
 export const environment = {
   production: true,
@@ -10,16 +10,16 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44350/',
+    issuer: 'https://tire-management-backend.azurewebsites.net/',
     redirectUri: baseUrl,
     clientId: 'BookStore_App',
     responseType: 'code',
     scope: 'offline_access BookStore',
-    requireHttps: true
+    requireHttps: true,
   },
   apis: {
     default: {
-      url: 'https://localhost:44350',
+      url: 'https://tire-management-backend.azurewebsites.net/',
       rootNamespace: 'Acme.BookStore',
     },
   },
